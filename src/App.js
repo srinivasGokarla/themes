@@ -18,8 +18,9 @@ function Comp1() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div style={{ backgroundColor: theme.background, color: theme.color }}>
-      <h1>Current Theme: {theme.color}</h1>
+    <div>
+      <h1>Current Theme: {theme.background}</h1>
+      {/* <Comp2/> */}
     </div>
   );
 }
@@ -40,8 +41,17 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }} className="App">
-      <Comp1 />
-      <Comp2 />
+      <div
+        style={{
+          backgroundColor: theme.background,
+          color: theme.color,
+          height: "100vh",
+          width: "100vw"
+        }}
+      >
+        <Comp1 />
+        <Comp2 />
+      </div>
     </ThemeContext.Provider>
   );
 }
